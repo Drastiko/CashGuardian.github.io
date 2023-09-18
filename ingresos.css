@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  color: #555;
+  width: 100%;
+  height: 100vh;
+  font-weight: 400;
+}
+.contenedor{
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  color: #fff;
+  background: url(/fondo.png), #c4202e;
+  background: url(/fondo.png), -webkit-gradient(linear, right top, left top, from(#7b4397), to(#d11c28));
+  background: url(/fondo.png), linear-gradient(to left, #6443bd, #dc2430)
+}
+
+.btn-primary{
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+.selector {
+  width: 100%; 
+}
+
+.form-select {
+  width: 100%; 
+  padding: 10px;
+  border-radius: 10px; 
+  font-size: 16px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.form-select option {
+  font-size: 16px; 
+}
+
+.contenedor-cambio {
+  width: 100%;
+  height: 40vh;
+  margin: 0 auto;
+  padding: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.contenedor-cambio .resultado-seccion,
+.contenedor-cambio .historial-seccion {
+  margin-bottom: 30px;
+}
+
+.contenedor-cambio h2 {
+  color: #007BFF;
+}
+
+.contenedor-cambio .resultado-seccion p,
+.contenedor-cambio .historial-seccion ul {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.contenedor-cambio .historial-seccion ul li {
+  color: #007BFF;
+  cursor: pointer;
+}
+
+.contenedor-cambio .historial-seccion ul li:hover {
+  text-decoration: underline;
+}
+
+
+#resultado {
+  font-weight: bold;
+  color: #333;
+  font-size: 24px;
+}
+@media screen and (max-width: 550px) {
+  .contenedor, .titulo-principal{
+      margin-top: 60px;
+  }
+  .titulo-principal{
+    margin-top: 60px;
+  }
+  .btn-primary{
+    margin-top: 0px;
+
+  }
+}
+
+
+.mensaje-error {
+  width: 50%;
+  background-color: #111111;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
+  top: 50%;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+
+.mensaje-conversion{
+  width: 50%;
+  background-color: #111111;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
+  top: 50%;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  border-radius: 10px;
+  opacity: 0.5;
+}

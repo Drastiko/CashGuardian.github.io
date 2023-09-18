@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlD9b0ZpT4YJgzPxaV9FqgFbc9z1ppvb25l5G5w5kD5f5zmxrEZ5coQ5foOs5S" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilo.css">
+    <title>CashGuardian</title>
+</head>
+
+<body onload="cargarApp()">
+    <header>
+        <div class="img-logo">
+            <img src="budgeting.png" alt="logo-pagina">
+        </div>
+        <h1 id="titulo-principal">CashGuardian</h1>
+        <div class="menu-hamburguesa" id="btn-menu">
+            <ion-icon name="menu-outline"></ion-icon>
+        </div>
+    </header>
+    <div class="barra-menu">
+        <nav class="menu">
+            <ul>
+                <li><a href="#"><i class="icono fas fa-home"></i> Inicio</a></li>
+                <li><a href="conversor.html"><i class="icono fas fa-dollar-sign"></i> Conversor</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-phone"></i> Contactame</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="menu-movil">
+        <ul>
+            <li><a href="index.html"><i class="icono fas fa-home"></i> Inicio</a></li>
+            <li><a href="conversor.html"><i class="icono fas fa-dollar-sign"></i> Conversor</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-phone"></i> Contactame</a></li>
+        </ul>
+    </div>
+    <div class="container-principal">
+        <div class="presupuesto">
+            <div class="titulo-principal">
+                Presupuesto
+            </div>
+            <div class="parrafo">
+                <p>Aqui se mostrara una vista previa de los gatos e ingresos generados</p>
+            </div>
+            <div class="presupuesto_valor" id='presupuesto'>+ 2,000.00</div>
+            <div class="presupuesto_ingreso limpiarEstilos">
+                <div class="presupuesto_ingreso--texto">Ingresos</div>
+                <div class="derecha">
+                    <div class="presupuesto_ingreso--valor" id='ingresos'>+4,000.00</div>
+                    <div class="presupuesto_ingreso--porcentaje">&nbsp;</div>
+                </div>
+            </div>
+            <div class="presupuesto_egreso limpiarEstilos">
+                <div class="presupuesto_egreso--texto">Egresos</div>
+                <div class="derecha limpiarEstilos">
+                    <div class="presupuesto_egreso--valor" id='egresos'>- 1,900.00</div>
+                    <div class="presupuesto_egreso--porcentaje" id='porcentaje'>45%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form id='forma' onsubmit="return false;">
+        <div class="agregar">
+            <div class="agregar_contenedor">
+                <select class='agregar_tipo' id='tipo'>
+                    <option value='ingreso' selected>+</option>
+                    <option value='egreso'>-</option>
+                </select>
+                <input type='text' class='agregar_descripcion' placeholder="Agregar Descripción" id='descripcion' />
+                <input type='number' class='agregar_valor' placeholder="Valor" id='valor' step='any' />
+                <button class='agregar_btn' onclick="agregarDato()">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="contenedor limpiarEstilos">
+        <div class="ingreso">
+            <h2 class='ingreso_titulo'>Ingresos</h2>
+            <div id='lista-ingresos'>
+                <div class="elemento limpiarEstilos">
+                    <div class="elemento_descripcion"></div>
+                    <div class="derecha limpiarEstilos">
+                        <div class="elemento_valor"></div>
+                        <div class="elemento_eliminar">
+                            <button class='elemento_eliminar--btn'>
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="elemento limpiarEstilos">
+                    <div class="elemento_descripcion"></div>
+                    <div class="derecha limpiarEstilos">
+                        <div class="elemento_valor"></div>
+                        <div class="elemento_eliminar">
+                            <button class='elemento_eliminar--btn'>
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="egreso">
+            <h2 class='egreso_titulo'>Egresos</h2>
+            <div id='lista-egresos'>
+                <div class="elemento limpiarEstilos">
+                    <div class="elemento_descripcion"></div>
+                    <div class="derecha limpiarEstilos">
+                        <div class="elemento_valor"></div>
+                        <div class="elemento_porcentaje"></div>
+                        <div class="elemento_eliminar">
+                            <button class='elemento_eliminar--btn'>
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="elemento limpiarEstilos">
+                    <div class="elemento_descripcion"></div>
+                    <div class="derecha limpiarEstilos">
+                        <div class="elemento_valor"></div>
+                        <div class="elemento_porcentaje"></div>
+                        <div class="elemento_eliminar">
+                            <button class='elemento_eliminar--btn'>
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mensaje" class="mensaje-agregado">
+            <i class="fa-solid fa-circle-check" style="color: #06db14;"></i>
+            Ha sido agregado correctamente.
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="company-description">
+                    <h5>Draxmeni Company</h5>
+                    <p>
+                        Esta pagina es util para realizar conversión de divisas, manejo de egresos e ingresos.
+                    </p>
+                </div>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/johandavid.veasuwu"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://instagram.com/jd_veas?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.tiktok.com/@drasticmen_?_t=8f3mv3KokJZ&_r=1"><i class="fa-brands fa-tiktok"></i></a></li>
+                </ul>
+                <ul class="useful-links">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="conversor.html">Conversor</a></li>
+                    <li><a href="about.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="dato.js"></script>
+    <script src="ingreso.js"></script>
+    <script src="egreso.js"></script>
+    <script src="app.js"></script>
+    <script src="menu.js"></script>
+</body>
+
+</html>
