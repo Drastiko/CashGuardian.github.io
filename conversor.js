@@ -74,6 +74,6 @@ montoInput.addEventListener("input", () => {
 
 function cambiarFecha() {
   const fechaElement = document.getElementById("fecha-conversion");
-  const fechaActual = new Date(); // Obtiene la fecha actual
-  fechaElement.textContent = fechaActual.toString(); // Actualiza el contenido del elemento con la nueva fecha
+  const fechaActual = new Date(); 
+  fechaElement.textContent = fechaActual.toString(); 
 }
